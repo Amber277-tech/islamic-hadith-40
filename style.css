@@ -1,0 +1,253 @@
+/* --- Ultra Deep & High Contrast Color Palette --- */
+:root {
+    --bg-main: #e5e8e5;          /* Harder, darker grey-sand base for light mode */
+    --bg-card: #ffffff;          /* Pure White contrasting containers */
+    --text-main: #0a110e;        /* Absolute pitch dark text for maximum clarity */
+    --text-muted: #2f3e3a;       /* Very dark slate grey for meta description */
+    --accent-teal: #082921;      /* Deepest possible Forest Islamic Teal */
+    --border-line: #b8c0bc;      /* Strong, clearly visible distinct borders */
+    --shadow-sm: 0 4px 20px rgba(8, 41, 33, 0.1);
+    --shadow-md: 0 10px 30px rgba(8, 41, 33, 0.18);
+    --font-global: 'Plus Jakarta Sans', sans-serif;
+
+    /* Light Mode: Much Darker, Stronger & Solid Tones for Cards */
+    --card-clr-1: #c6ded0; /* Solid Deep Mint */
+    --card-clr-2: #c4d7e0; /* Solid Deep Sky Blue */
+    --card-clr-3: #e6ceb8; /* Solid Deep Peach/Clay */
+    --card-clr-4: #dec2db; /* Solid Deep Lavender */
+    --card-clr-5: #e3d5b1; /* Solid Deep Antique Gold */
+    --card-clr-6: #c4dad0; /* Solid Deep Sage */
+}
+
+[data-theme="dark"] {
+    --bg-main: #050706;          /* Extreme True Jet Black background */
+    --bg-card: #0d1210;          /* Super deep dark container background */
+    --text-main: #ffffff;        /* Pure solid white text for ultra contrast */
+    --text-muted: #a3b8b3;       /* Brightened mint-grey for sub-texts */
+    --accent-teal: #5ce6c4;      /* High glow radiant neon mint/teal */
+    --border-line: #222e2a;      /* Hard dark borders */
+    --shadow-sm: 0 4px 25px rgba(0, 0, 0, 0.6);
+    --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.85);
+
+    /* Dark Mode: Extremely Deep Obsidian Tones for Cards */
+    --card-clr-1: #0a1711; /* Midnight Emerald */
+    --card-clr-2: #09161c; /* Midnight Deep Blue */
+    --card-clr-3: #1a120b; /* Midnight Dark Roast */
+    --card-clr-4: #190e1a; /* Midnight Dark Velvet */
+    --card-clr-5: #17150a; /* Midnight Dark Brass */
+    --card-clr-6: #091713; /* Midnight Dark Sage */
+}
+
+/* --- Layout Architecture --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-global);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* --- Header Styling --- */
+header {
+    background-color: var(--bg-card);
+    border-bottom: 3px solid var(--accent-teal); /* Heavy premium layout identifier */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.header-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 1.4rem;
+}
+
+h1 {
+    font-size: 1.4rem;
+    color: var(--accent-teal);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.btn-theme {
+    background-color: var(--bg-main);
+    border: 2px solid var(--border-line);
+    font-family: var(--font-global);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-theme:hover {
+    transform: scale(1.03);
+    background-color: var(--border-line);
+}
+
+/* --- Hadith List Cards --- */
+.hadith-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.hadith-card {
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--border-line); /* Bolder card definitions */
+    transition: transform 0.2s ease, background-color 0.3s ease, border 0.3s ease;
+}
+
+/* Dynamic Heavy Multi-Color Loop for Cards */
+.hadith-card:nth-child(6n+1) { background-color: var(--card-clr-1); }
+.hadith-card:nth-child(6n+2) { background-color: var(--card-clr-2); }
+.hadith-card:nth-child(6n+3) { background-color: var(--card-clr-3); }
+.hadith-card:nth-child(6n+4) { background-color: var(--card-clr-4); }
+.hadith-card:nth-child(6n+5) { background-color: var(--card-clr-5); }
+.hadith-card:nth-child(6n+6) { background-color: var(--card-clr-6); }
+
+.hadith-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+
+.hadith-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-line);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.hadith-number {
+    font-weight: 700;
+    color: var(--accent-teal);
+    background-color: var(--bg-card);
+    padding: 4px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    border: 2px solid var(--border-line);
+}
+
+.hadith-source {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+/* Texts Configurations */
+.arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.9rem; /* Bigger, bolder Arabic look */
+    text-align: right;
+    direction: rtl;
+    line-height: 2.4;
+    color: var(--text-main);
+    margin-bottom: 25px;
+    padding: 10px 0;
+    font-weight: 700;
+}
+
+.translation-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lang-block {
+    position: relative;
+    padding-left: 18px;
+}
+
+/* Hard Solid side lines for translation blocks */
+.lang-block::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    bottom: 5px;
+    width: 5px;
+    background-color: var(--accent-teal);
+    border-radius: 3px;
+}
+
+.lang-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.urdu {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 1.35rem; 
+    text-align: right;
+    direction: rtl;
+    line-height: 2.4;
+    padding-top: 5px;
+    font-weight: 700;
+}
+
+.english {
+    font-size: 1.05rem;
+    color: var(--text-main);
+    text-align: left;
+    direction: ltr;
+    font-weight: 600; /* Bolder readable English block */
+}
+
+/* --- Footer Area --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-top: 2px solid var(--border-line);
+    margin-top: 30px;
+}
+
+@media(max-width: 600px) {
+    .hadith-card { padding: 25px; }
+    .arabic { font-size: 1.65rem; }
+    .urdu { font-size: 1.25rem; }
+    .btn-theme { padding: 6px 14px; }
+}
